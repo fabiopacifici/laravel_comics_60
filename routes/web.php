@@ -31,6 +31,13 @@ Route::get('/comics', function () {
     return view('comics', compact('comics'));
 })->name('comics');
 
+/* Test commit new distro */
+Route::get('/comics/{id}', function ($id) {
+    $comics = config('db.comics');
+    dd($comics[$id]);
+    return view('comics', compact('comics'));
+})->name('comics');
+
 Route::get('/movies', function () {
     return 'Movies page';
 })->name('movies');
