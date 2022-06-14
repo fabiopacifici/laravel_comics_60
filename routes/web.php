@@ -28,15 +28,20 @@ Route::get('/characters', function () {
 Route::get('/comics', function () {
     $comics = config('db.comics');
 
-    return view('comics', compact('comics'));
-})->name('comics');
+    return view('comics.index', compact('comics'));
+})->name('comics.index');
 
 /* Test commit new distro */
 Route::get('/comics/{id}', function ($id) {
     $comics = config('db.comics');
-    dd($comics[$id]);
-    return view('comics', compact('comics'));
-})->name('comics');
+
+    if(is_numeric($id) && $id >= 0 && $id < count($comics) ) {
+        $comic = $comics[$id];
+        return view('comics.show', compact('comic'));
+    } else {
+        abort(404);
+    }
+})->name('comics.show');
 
 Route::get('/movies', function () {
     return 'Movies page';

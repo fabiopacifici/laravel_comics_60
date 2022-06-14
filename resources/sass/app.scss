@@ -6,7 +6,31 @@ $dc-text-dark: #464646;
 $dc-text-white: #FFFFF2;
 $dc-text-grey: #797777;
 
+
+
+/* Header */
+
+#site_header {
+    a.active {
+        color: $dc-primary;
+        border-bottom: 4px solid $dc-primary;
+
+    }
+}
+
 /* MAIN */
+
+.single-comic {
+    .hero_image {
+        position: relative;
+        box-shadow: inset 0px -60px $dc-primary;
+        .thumb {
+            position: absolute;
+            bottom: 1rem;
+            
+        }
+    }
+}
 
 main {
     .hero_image {
@@ -14,6 +38,7 @@ main {
         background-image: url('../img/jumbotron.jpg');
         background-repeat: no-repeat;
         background-size: cover;
+        
     }
 
     .comics {

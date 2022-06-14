@@ -1,4 +1,4 @@
-<header>
+<header id="site_header">
 
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container">
@@ -10,14 +10,14 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{route('home')}}">Home <span class="visually-hidden">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() === 'home' ? 'active' : '' }}" href="{{route('home')}}">Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('characters')}}">Characters</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('comics')}}">Comics</a>
+                        <a class="nav-link {{ Route::currentRouteName() === 'comics.index' || Route::currentRouteName() === 'comics.show' ? 'active' : '' }}" href="{{route('comics.index')}}">Comics</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('movies')}}">Movies</a>
